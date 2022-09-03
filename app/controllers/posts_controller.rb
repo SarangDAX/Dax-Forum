@@ -37,15 +37,15 @@ class PostsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:id])
-        # set_item
+        # set_post
         #binding.break
         @post.destroy
         redirect_to posts_path
     end
 
     private
-    # # def set_item
-    # #     @item = Kitchen.find(params[:id])
+    # # def set_post
+    # #     @post = Post.find(params[:id])
     # # end
 
     def post_params

@@ -1,0 +1,11 @@
+<%= form_with(model: @channel, local: true) do |f| %>
+
+    <p>
+        <%= f.label :Name %><br>
+        <%= f.text_field :channel_name %>
+    </p>
+
+    <p>
+        <%= f.submit %> 
+    </p>
+<% end %>

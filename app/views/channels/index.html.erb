@@ -1,0 +1,25 @@
+<h1> CHANNELS LISTING PAGE : </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> CHANNEL NAME </th>
+            <th> ACTIONS </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @channels.each do |channel| %>
+            <tr>
+                <td> <%= channel.channel_name %> </td>
+                <td> <button> <%= link_to 'Show', channel_path(channel) %> </button> </td>
+                <td> <button> <%= link_to 'Edit', edit_channel_path(channel) %> </button>&ensp;&ensp; <br> </td>
+                <td> <button> <%= link_to 'Delete', channel_path(channel), method: :delete%> </button> </td>
+            </tr>
+        <% end %>
+    </tbody>            
+</table>
+
+<br><br>
+
+<h3><button> <%= link_to 'ADD NEW CHANNEL', new_channel_path %> </button> </h3>
