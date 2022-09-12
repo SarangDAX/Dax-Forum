@@ -23,9 +23,14 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+# Gems installed for current project ->
+gem 'pry'
 # for authntication purpose->
 gem 'devise'
-
+#for styling ->
+gem 'bootstrap', '~> 4.0.0'
+# Bootstrap JS uses Jquery, for rails v > 5.1 we need jquery gem
+gem 'jquery-rails'
 
 
 

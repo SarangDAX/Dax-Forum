@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root 'posts#index'
 
-  root 'home#index'
+  resources :posts do 
+    resources :comments
+  end
 
-  resources :posts
   resources :channels
 
   devise_for :users, controllers: { registrations: 'registrations'}

@@ -1,0 +1,25 @@
+
+
+
+<table class="table table-striped  ">
+  <thead class="thead thead-dark">
+    <tr>
+      <th scope="col">NO</th>
+      <th scope="col">CHANNEL NAME</th>
+      <th scope="col">ACTIONS</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i=1 %>
+    <% @channels.each do |channel| %>
+        <tr>
+        <th scope="row"> <%= i %> </th>
+        <td> <%= link_to channel.channel_name, channel_path(channel) %> </td>
+        <td> <button> <%= link_to 'Edit', edit_channel_path(channel) %> </button>&ensp;&ensp; <br> </td>
+        <td> <button> <%= link_to 'Delete', channel_path(channel), method: :delete%> </button> </td>
+        </tr>
+        <% i += 1 %> 
+    <% end %>
+  </tbody>
+</table>

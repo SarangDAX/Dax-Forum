@@ -1,10 +1,12 @@
+
+
 <h1> DISCUSSIONS LISTING PAGE : </h1>
 
 <table>
     <thead>
         <tr>
             <th> TOPIC NAME </th>
-            <th> DESCRIPTION </th>
+            <th> CONTENT &ensp;&ensp;</th>
             <th> ACTIONS </th>
         </tr>
     </thead>
@@ -14,7 +16,7 @@
             <tr>
                 <td> <%= post.title %> </td>
                 <td> <%= post.content %> </td>
-                <td> <button> <%= link_to 'Show', post_path(post) %> </button> </td>
+                <td> <button> <%= link_to 'Show', post_comments_path(post) %> </button> </td>
                 <td> <button> <%= link_to 'Edit', edit_post_path(post) %> </button>&ensp;&ensp; <br> </td>
                 <td> <button> <%= link_to 'Delete', post_path(post), method: :delete%> </button> </td>
             </tr>
@@ -24,4 +26,40 @@
 
 <br><br>
 
-<h3><button> <%= link_to 'ADD NEW POST', new_post_path %> </button> </h3>
+<h3><button> <%= link_to 'ADD NEW POST', new_post_path %> </button> </h3><br><br>
+
+
+<div class="row">
+    <div class="column" >
+        <h1>&ensp;<%= link_to 'CHANNELS :', channels_path %></h1>
+    </div>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th> CHANNEL NAME </th>
+            </tr>
+        </thead>
+
+    <tbody>
+        <% @channels.each do |channel| %>
+            <tr>
+                <td> <%= channel.channel_name %> </td>
+                <td> <button> <%= link_to 'Show', channel_path(channel) %> </button> </td>
+            </tr>
+        <% end %>
+    </tbody>            
+</table>
+</div>
+
+
+
+<br><br>
+<% if not user_session %>
+    <button> <%= link_to 'Sign In', user_session_path %> </button>
+    <button> <%= link_to 'Sign Up', new_user_registration_path %> </button>
+<% else %>
+    <button> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </button>
+<% end %>

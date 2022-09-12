@@ -11,6 +11,12 @@
     </p>
 
     <p>
+        <%= f.label :Channel %><br>
+        <%= f.select :channel_id, @channels.map { |c| [c.channel_name, c.id]}, { prompt: 'Select Channel' } %>
+        
+    </p>
+
+    <p>
         <%= f.submit %> 
     </p>
 

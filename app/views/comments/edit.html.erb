@@ -1,0 +1,13 @@
+<h1> EDIT EXISTING COMMENT : </h1>
+<%= form_with(model: @comment, url: post_comment_path, local: true) do |f| %>
+
+    <p>
+        <%= f.label :Reply %><br>
+        <%= f.text_field :reply %>
+    </p>
+
+    <p>
+        <%= f.submit %> 
+    </p>
+
+<% end %>

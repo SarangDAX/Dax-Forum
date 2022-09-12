@@ -1,0 +1,29 @@
+
+<br>
+<%= render 'zforms/discussion_card' %>
+
+<br><br>
+<h2> COMMENTS : </h2>
+<br><br>
+<table>
+    <thead>
+        <tr>
+            <th> REPLY </th>
+            <th> ACTIONS </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @comments.each do |comment| %>
+            <tr>
+                <td> <%= comment.reply %> </td>
+                <td> <button> <%= link_to 'Edit', edit_post_comment_path(@post, comment) %> </button>&ensp;&ensp; <br> </td> 
+                <td> <button> <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete%> </button> </td>
+            </tr>
+        <% end %>
+    </tbody>            
+</table>
+
+<br><br>
+
+<h3><button> <%= link_to 'ADD NEW COMMENT', new_post_comment_path %> </button> </h3>

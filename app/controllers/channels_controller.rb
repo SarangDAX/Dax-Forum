@@ -1,14 +1,20 @@
 class ChannelsController < ApplicationController
+  before_action :set_channel, only: [:show, :edit, :update, :destroy]
+
+
   def show
+    @channels = Channel.all
+    @posts = Post.where('channel_id = ?', @channel.id)
   end
 
   def index
     @channels = Channel.all
+    @posts = Post.all
   end
 
   def new
     @channel = Channel.new
-  end
+  end 
 
   def create
     @channel = Channel.new(channel_params)
@@ -39,9 +45,13 @@ class ChannelsController < ApplicationController
   end
 
   private
-  # # def set_post
-  # #     @post = Post.find(params[:id])
-  # # end
+  # def set_post
+  #     @post = Post.find(params[:id])
+  # end
+
+  def set_channel
+    @channel = Channel.find(params[:id])
+  end
 
   def channel_params
       params.require(:channel).permit(:channel_name)

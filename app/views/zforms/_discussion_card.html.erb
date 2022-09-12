@@ -1,0 +1,29 @@
+<div class="container-fluid mt-100">
+     <div class="row">
+         <div class="col-md-12">
+             <div class="card mb-4">
+                 <div class="card-header">
+                     <div class="media flex-wrap w-100 align-items-center"> <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt="">
+                         <div class="media-body ml-3">USERNAME -><%= @post.user_id %>
+                             <div class="text-muted small">DATE ON WHICH POST IS POSTED</div>
+                         </div>
+                         <div class="text-muted small ml-3">
+                             <div>Member since <strong>DATE AT USER CREATED</strong></div>
+                             <div><strong>NO OF POSTS</strong> number </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-body">
+                    <%= @post.content %>
+                 </div>
+                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                    <div class="px-4 pt-3"> <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center align-middle" data-abc="true"> <i class="fa fa-heart text-danger"></i>&nbsp; <span class="align-middle">NO OF COMMENTS</span> </a> <span class="text-muted d-inline-flex align-items-center align-middle ml-4"> <i class="fa fa-eye text-muted fsize-3"></i>&nbsp; <span class="align-middle"></span> </span> </div>
+                    <div class="px-4 pt-3">
+                        <button type="button" class="btn btn-dark">
+                            <i class="ion ion-md-create"></i>&nbsp;<%= link_to 'REPLY', new_post_comment_path %></button> 
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>

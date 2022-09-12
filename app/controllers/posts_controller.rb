@@ -1,23 +1,31 @@
 class PostsController < ApplicationController
 
-    # def show
-    #     @post = Post.find(params[:id])   
-    # end
+    before_action :authenticate_user!, exclude: [:index, :show]
+    #before_action :set_user, only: [:create, :edit, :show, :update, :destroy]
+
+    def show
+        @post = Post.find(params[:id])   
+        @posts = Post.all
+        @channels = Channel.all
+    end
 
     def index
         @posts = Post.all
+        @channels = Channel.all
     end
  
     def new
-        @post = Post.new 
+        @post = current_user.posts.build 
+        @channels = Channel.all
     end
 
     def edit
         @post = Post.find(params[:id]) 
+        @channels = Channel.all
     end
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.build(post_params)
         if @post.save
             redirect_to posts_path
         else
@@ -44,12 +52,16 @@ class PostsController < ApplicationController
     end
 
     private
-    # # def set_post
-    # #     @post = Post.find(params[:id])
-    # # end
+    # def set_post
+    #     @post = Post.find(params[:id])
+    # end
 
     def post_params
-        params.require(:post).permit(:title, :content)
+        params.require(:post).permit(:title, :content, :channel_id)
     end
+
+    # def set_user
+    #     @user = User.find(params[:id])
+    # end
 
 end

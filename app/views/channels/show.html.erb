@@ -1,2 +1,27 @@
-<h1>Channels#show</h1>
-<p>Find me in app/views/channels/show.html.erb</p>
+<h1> DISCUSSIONS OF PARTICULAR CHANNEL : </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> TOPIC NAME </th>
+            <th> CONTENT &ensp;&ensp;</th>
+            <th> ACTIONS </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @posts.each do |post| %>
+            <tr>
+                <td> <%= post.title %> </td>
+                <td> <%= post.content %> </td>
+                <td> <button> <%= link_to 'Show', post_comments_path(post) %> </button> </td>
+                <td> <button> <%= link_to 'Edit', edit_post_path(post) %> </button>&ensp;&ensp; <br> </td>
+                <td> <button> <%= link_to 'Delete', post_path(post), method: :delete%> </button> </td>
+            </tr>
+        <% end %>
+    </tbody>            
+</table>
+
+<br><br>
+
+<h3><button> <%= link_to 'ADD NEW POST', new_post_path %> </button> </h3><br><br>
